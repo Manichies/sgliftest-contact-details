@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect with Gerald Khoo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d0d0d;
+    --bg: #f4f3f0;
+    --white: #ffffff;
+    --ash: #a8a49e;
+    --rule: #e0ddd8;
+    --success: #2d6a4f;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 420px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HOST CARD */
+  .host-card {
+    background: var(--ink);
+    color: var(--white);
+    padding: 28px 28px 24px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .host-card::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: var(--bg);
+  }
+
+  .host-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+  }
+
+  .host-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .host-title {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* FORM CARD */
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-top: none;
+    padding: 28px;
+  }
+
+  .form-intro {
+    font-size: 0.8rem;
+    color: var(--ash);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+  input::placeholder { color: #ccc; }
+
+  input:focus {
+    border-color: var(--ink);
+    background: var(--white);
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 5;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .submit-btn:hover { background: #333; transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+
+  .submit-btn svg {
+    width: 13px; height: 13px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* SUCCESS STATE */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .success-icon svg {
+    width: 22px; height: 22px;
+    stroke: white; fill: none;
+    stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  .success-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .success-sub {
+    font-size: 0.8rem;
+    color: var(--ash);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.68rem;
+    color: var(--ash);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="host-card">
+    <div class="host-label">You're connecting with</div>
+    <div class="host-name">Gerald Khoo</div>
+    <div class="host-title">Sales Executive</div>
+  </div>
+
+  <div class="form-card">
+    <!-- FORM VIEW -->
+    <div id="formView">
+      <p class="form-intro">Leave your details and Gerald will be in touch with you shortly.</p>
+
+      <div class="field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your name" autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+65 ···· ····" autocomplete="tel">
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="company">Company</label>
+        <input type="text" id="company" placeholder="Your company name" autocomplete="organization">
+      </div>
+
+      <button class="submit-btn" onclick="handleSubmit()">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send My Details
+      </button>
+    </div>
+
+    <!-- SUCCESS VIEW -->
+    <div class="success-state" id="successView">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="success-title">Details Sent!</div>
+      <p class="success-sub">Thank you. Gerald will reach out to you soon.</p>
+    </div>
+  </div>
+
+  <p class="footer">Singapore Lift Inspection & Testing Pte Ltd &nbsp;·&nbsp; www.sgliftest.com</p>
+</div>
+
+<script>
+  function handleSubmit() {
+    const name    = document.getElementById('name').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const company = document.getElementById('company').value.trim();
+
+    if (!name || !phone) {
+      alert('Please enter at least your name and phone number.');
+      return;
+    }
+
+    // ── FORMSPREE INTEGRATION ──
+    // Once you're ready to receive emails, follow these steps:
+    // 1. Go to https://formspree.io and sign up for free
+    // 2. Create a new form and get your Form ID (looks like: xpwzabcd)
+    // 3. Replace YOUR_FORM_ID below with your actual Form ID
+    // 4. Re-upload this file to GitHub Pages
+    //
+    // const FORM_ID = 'YOUR_FORM_ID';
+    // fetch(`https://formspree.io/f/${FORM_ID}`, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    //   body: JSON.stringify({ name, phone, email, company })
+    // });
+
+    // Show success screen
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').style.display = 'block';
+
+    console.log('Visitor details:', { name, phone, email, company });
+  }
+</script>
+</body>
+</html>
