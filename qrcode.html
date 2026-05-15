@@ -53,7 +53,14 @@
         <div class="subtitle">Sales Executive at Singapore Lift Inspection & Testing Pte Ltd</div>
 
         <div class="qr-container">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://manichies.github.io/sgliftest-contact-details/" alt="QR Code for Gerald Khoo Contact Form" style="max-width: 100%; height: auto;">
+            <!-- Primary QR code service -->
+            <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://manichies.github.io/sgliftest-contact-details/" alt="QR Code for Gerald Khoo Contact Form" style="max-width: 100%; height: auto;">
+
+            <!-- Fallback QR code if primary fails -->
+            <div id="qr-fallback" style="display: none; margin-top: 20px;">
+                <p style="font-size: 0.8rem; color: #666; margin-bottom: 10px;">If QR code doesn't load, try this alternative:</p>
+                <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https://manichies.github.io/sgliftest-contact-details/" alt="Alternative QR Code" style="max-width: 100%; height: auto;">
+            </div>
         </div>
 
         <div class="url">
@@ -64,5 +71,24 @@
             Scan this QR code with your phone's camera or QR code reader to access the contact form.
         </div>
     </div>
+
+    <script>
+        // Check if primary QR code loads, show fallback if it fails
+        const qrImg = document.getElementById('qr-code');
+        const fallback = document.getElementById('qr-fallback');
+
+        qrImg.onerror = function() {
+            qrImg.style.display = 'none';
+            fallback.style.display = 'block';
+        };
+
+        // Also try loading after a delay in case of slow connections
+        setTimeout(function() {
+            if (qrImg.complete && qrImg.naturalHeight === 0) {
+                qrImg.style.display = 'none';
+                fallback.style.display = 'block';
+            }
+        }, 3000);
+    </script>
 </body>
 </html>
