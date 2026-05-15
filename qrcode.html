@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="3;url=index.html">
     <title>QR Code - Gerald Khoo Contact Form</title>
     <style>
         body {
@@ -53,13 +52,6 @@
         <h1>Scan to Connect with Gerald Khoo</h1>
         <div class="subtitle">Sales Executive at Singapore Lift Inspection & Testing Pte Ltd</div>
 
-        <div id="redirect-notice" style="background: #e8f4f8; padding: 15px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #0d0d0d;">
-            <p style="margin: 0; font-size: 0.9rem; color: #0d0d0d;">
-                <strong>Redirecting to contact form in <span id="countdown">3</span> seconds...</strong><br>
-                <small>Or <a href="index.html" style="color: #0d0d0d; text-decoration: underline;">click here</a> to go directly</small>
-            </p>
-        </div>
-
         <div class="qr-container">
             <!-- Primary QR code service -->
             <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://manichies.github.io/sgliftest-contact-details/" alt="QR Code for Gerald Khoo Contact Form" style="max-width: 100%; height: auto;">
@@ -97,20 +89,6 @@
                 fallback.style.display = 'block';
             }
         }, 3000);
-
-        // Countdown timer for redirect
-        let countdown = 3;
-        const countdownElement = document.getElementById('countdown');
-
-        const timer = setInterval(function() {
-            countdown--;
-            countdownElement.textContent = countdown;
-
-            if (countdown <= 0) {
-                clearInterval(timer);
-                window.location.href = 'index.html';
-            }
-        }, 1000);
     </script>
 </body>
 </html>
