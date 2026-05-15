@@ -271,22 +271,25 @@
     }
 
     // ── FORMSPREE INTEGRATION ──
-    // Once you're ready to receive emails, follow these steps:
-    // 1. Go to https://formspree.io and sign up for free
-    // 2. Create a new form and get your Form ID (looks like: xpwzabcd)
-    // 3. Replace YOUR_FORM_ID below with your actual Form ID
-    // 4. Re-upload this file to GitHub Pages
-    //
-    // const FORM_ID = 'YOUR_FORM_ID';
-    // fetch(`https://formspree.io/f/${FORM_ID}`, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    //   body: JSON.stringify({ name, phone, email, company })
-    // });
-
-    // Show success screen
-    document.getElementById('formView').style.display = 'none';
-    document.getElementById('successView').style.display = 'block';
+    const FORM_ID = 'xykoqbzz';
+    fetch(`https://formspree.io/f/${FORM_ID}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, phone, email, company })
+    })
+    .then(response => {
+      if (response.ok) {
+        // Show success screen
+        document.getElementById('formView').style.display = 'none';
+        document.getElementById('successView').style.display = 'block';
+      } else {
+        alert('There was an error sending your details. Please try again.');
+      }
+    })
+    .catch(error => {
+      alert('Network error. Please check your connection and try again.');
+      console.error('Form submission error:', error);
+    });
 
     console.log('Visitor details:', { name, phone, email, company });
   }
